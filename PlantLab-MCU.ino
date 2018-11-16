@@ -90,12 +90,15 @@ WaterProcess *wt_process[6];
 #include "./modules/ChannelHandler.h"
 #include "./modules/Memory/MemoryCheck.h"
 
+
+#include "./ButtonModule/ButtonManager.h"
 #include "./modules/Communication.h"
 
 #include "./modules/Helper/Puppet.h"
 
 void setup()
 {
+    ButtonManager::instance();
     Puppet::instance();
     Wire.begin();
 

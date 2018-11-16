@@ -163,6 +163,11 @@ private:
       res.trim();
       mpuCom.println(ChannelHanler::instance()->GpioStatus());
     }
+    else if(res.startsWith("Gbtn")){
+      res.replace("Gbtn,", "");
+      res.trim();
+      mpuCom.println(ButtonManager::instance()->GetStatus());
+    }
     else if (res.startsWith("Gcontrol"))/*  */
     {
       // ChannelHanler::instance()->JsonSettingAll();
