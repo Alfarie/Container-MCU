@@ -18,6 +18,7 @@ class Emergency
         Button *emerButton;
         static void emerButtonChanged(int state){
             emerStatus = state;
+            debugCom.println(emerStatus);
         }
 };
 Emergency *Emergency::s_instance = 0;

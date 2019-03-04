@@ -166,7 +166,9 @@ private:
     else if(res.startsWith("Gbtn")){
       res.replace("Gbtn,", "");
       res.trim();
-      mpuCom.println(ButtonManager::instance()->GetStatus());
+      mpuCom.println(Sensor::instance()->GetSensorsString());
+      // mpuCom.println(ButtonManager::instance()->GetStatus());
+      // debugCom.println(ButtonManager::instance()->GetStatus());
     }
     else if (res.startsWith("Gcontrol"))/*  */
     {

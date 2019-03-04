@@ -10,13 +10,13 @@ TaskManager taskManager;
 #define VERSION 2.0
 #define PROJECT "PLANTLAB-GROBOT"
 #define UPLOADDATE String(__DATE__) + " " +  String(__TIME__)
-#define ledPin 7
-#define co2Pin 5
-#define ecPin 3
-#define phPin 2
-#define pumpPin 6
-#define valvePin 4
-
+#define ledPin 2
+#define co2Pin 7
+#define ecPin 4
+#define phPin 5
+#define pumpPin 3
+#define valvePin 6
+//2led, 3pump, 4ec, 5ph, 6valve, 7co2, 8led
 String ShowBoardInfo(){
     String str = "INFOBOARD-VERSION" + String(VERSION) + "\r\n";
     str += "INFOPROJECT-NAME "+ String(PROJECT) + "\r\n";
@@ -24,11 +24,13 @@ String ShowBoardInfo(){
     return str;
 }
 
-HardwareSerial &mpuCom    = Serial;
-HardwareSerial &solCom = Serial1;
-HardwareSerial &lightCom  = Serial2;
+HardwareSerial &debugCom = Serial;
+// SoftwareSerial debugCom(21,22);
+HardwareSerial &mpuCom    = Serial1;
+HardwareSerial &solCom = Serial2;
+HardwareSerial &lightCom  = Serial3;
 HardwareSerial &airCom = Serial3;
-SoftwareSerial debugCom(21,22);
+
 
 #include "./modules/Helper/DisplayLog.h"
 
@@ -91,14 +93,14 @@ WaterProcess *wt_process[6];
 #include "./modules/Memory/MemoryCheck.h"
 
 
-#include "./ButtonModule/ButtonManager.h"
+// #include "./ButtonModule/ButtonManager.h"
 #include "./modules/Communication.h"
 
 #include "./modules/Helper/Puppet.h"
 
 void setup()
 {
-    ButtonManager::instance();
+    // ButtonManager::instance();
     Puppet::instance();
     Wire.begin();
 

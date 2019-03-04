@@ -29,7 +29,7 @@ class Floating : public Task
     virtual void OnUpdate(uint32_t delta_time)
     {
         val = digitalRead(FLOATING);
-        // val = !val;
+        val = !val;
     }
 };
 Floating *Floating::s_instance = 0;
